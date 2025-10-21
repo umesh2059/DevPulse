@@ -1,8 +1,26 @@
-import React from'react'
+import React, { useState } from'react';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 const Login=()=>{
-    return{
-        <div className="flex justify-center items-center h-screen">
+
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+    const navigate=useNavigate();
+
+
+    const handleSubmit=async(e)=>{
+        e.preventDefault();
+        console.log("login form successfully working");
+        console.log({email,password});
+
+    }
+
+    return(
+       
+    <div className="flex justify-center items-center h-screen">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         <input
@@ -30,5 +48,7 @@ const Login=()=>{
         </p>
       </form>
     </div>
-    }
-};
+    )    
+}
+
+export default Login;
